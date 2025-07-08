@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block titulo %}
+    {{ post.title }} <!-- Será gerado dinamicamente-->
+{% endblock %}
+
+{% block css_files %} 
+    <link rel="stylesheet" href="{% static "blog/post-detail.css" %}" />
+{% endblock %}
+
+{% block conteudo %}
+
+    {% if comment_form.errors %}
+        <div id="alerta">
+            <h2>Erro ao enviar comentário</h2>
+            <p>Houve um erro ao enviar o comentário. Por favor, corrija os erros abaixo</p>
+            <a href="#comment-form">voltar ao formulário</a>
+        </div>    
+    {% endif %}
+
+    <section id="resumo">
+        <h2>{{ post.title }}</h2>
+        <div>
+            {% for tag in post_tags %}
+                <span class="tag"> {{ tag.caption}} </span>  
+            {% endfor%}      
+        </div>
+        {% if saved_for_later %}
+            <form action="{% url 'remove-read-later' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" value="{{ post.id }}" name="post_id">
+                <div id="read-later">
+                    <button>Remover "Ler Depois"</button>
+                </div>    
+            </form>    
+
+        {% else %}
+            <form action="{% url 'read-later' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" value="{{ post.id }}" name="post_id">
+                <div id="read-later">
+                    <button>Ler Depois</button>
+                </div>    
+            </form>    
+        {% endif %}   
+         
+        <article>
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+            <address>Por <a href="mailto:{{ post.author.email }}">{{ post.author }}</a></address>
+            <div>Última atualização <time> {{ post.date|date:"d-M-Y" }}</time></div> <!-- Será gerado dinamicamente-->
+        </article>        
+    </section>
+    <main>
+        {{ post.content|linebreaks }}      
+    </main>
+
+    <section id="comments">
+        <h2>Comentários</h2>
+        <ul>
+            {% for comment in post.comments.all %}
+                <li>
+                    <p><strong>{{ comment.user_name }}</strong> ({{ comment.user_email }})</p>
+                    <p>{{ comment.text|linebreaks }}</p>
+                </li>
+            {% empty %}
+                <li><p>Nenhum comentário ainda. Seja o primeiro a comentar</p></li>
+            {% endfor %} 
+        </ul>    
+    </section>    
+    <section id="comment-form">
+        <h2>Enviar Comentário</h2>
+        <form action="{% url 'post-detail-page' post.slug %}" method='post' novalidate>
+            {% csrf_token %}
+            {% for field in comment_form %}
+                <div class="form-control  {% if field.errors %}invalid{% endif %} ">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {{ field.errors }}
+                </div>
+            {% endfor %}       
+            <button type="submit">Enviar Comentário </button>
+        </form>
+    </section> 
+
+    {% endblock %} 
