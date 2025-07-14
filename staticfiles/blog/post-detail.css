@@ -1,0 +1,217 @@
+body {
+    background-color: #e7e7e7;
+}
+
+#main-navigation{
+    background-color: #390281;
+    box-shadow: 0 2px 8px #000045;
+}
+
+#resumo{
+    margin: 8rem auto 3rem auto;
+    padding: 2rem;
+    width:90%;
+    max-width: 90rem;
+    border-radius: 16px;
+    background-color: #5706C0;
+    position:relative;
+    box-shadow: 0 2px 8px #000045;
+    height: 22rem; 
+}
+
+#resumo h2{
+    color:white;
+    font-size: 3.5rem;
+    margin-bottom: 0.25rem;
+}
+
+#resumo article {
+    position:absolute;
+    top:2rem;
+    right:3rem;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    text-align: right;
+    color:white;
+} 
+
+#resumo article img {
+    width:12rem;
+    height:12rem;
+    border-radius: 12px;
+    transform: rotateZ(5deg);
+    border:5px solid white;
+    margin-bottom: 1rem;
+}
+
+#resumo address {
+    font-weight: bold;
+}
+
+#resumo address a{
+    color:white;
+    text-decoration: none;
+}
+
+#resumo time {
+    font-weight: bold;
+}
+
+main{
+    width:90%;
+    max-width: 90rem;
+    margin: 3rem auto;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #000045;
+}
+
+.tag {
+    background-color:white;
+    color: #390281;
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    border-radius: 10px;
+}
+
+
+/* Formatação do formulário */
+
+#comment-form {
+    margin: 3rem auto;
+    width: 90%;
+    max-width:35rem;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 2px 8px #9b9b9c;
+    padding:1rem;
+}
+
+#comment-form button{
+    font:inherit;
+    background-color: #390281;
+    color:white;
+    border: 1px solid #390281;
+    padding: 0.5rem 1.5rem;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+#comment-form button:hover {
+    background-color: #5706C0;
+    border-color: #5706C0;
+}
+
+
+.form-control {
+    margin-bottom: 1rem;
+}
+
+.form-control label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display:block;
+}
+
+.form-control input,
+.form-control textarea {
+    display:block;
+    width:100%;
+    font:inherit;
+    padding: 0.3rem;
+    border-radius: 7px;
+    border: 1px solid #a49f9f
+}
+
+/* Formatação das mensagens de erro */
+
+.errorlist{
+    list-style: none;
+    margin: 0.5rem 0;
+    padding: 0;
+    color:#ec3727;
+}
+
+/* Formatação dos campos de input e textarea */
+
+.invalid label {
+    color:#ec3727;
+}
+
+.invalid input,
+.invalid textarea{
+    border-color: #ec3727;
+    background-color: #ffe6e7;
+}
+
+/* Formatação da mensagem de erro */
+
+#alerta{
+    margin: 8rem auto 3rem auto;
+    border: 1px solid #ec3727;
+    background-color: #ffe6e7;
+    padding: 1rem;
+    width:90%;
+    max-width: 40rem;
+}
+
+#alerta a{
+    text-decoration: none;
+    border: 1px solid #ec3727;
+    background-color: #ec3727;
+    color: white;
+    padding: 0.25rem 1.5rem;
+    border-radius: 7px;
+}
+
+/* Formatação do comentário */
+
+#comments{
+    margin: 3rem auto;
+    width:90%;
+    max-width: 60rem;
+    border-radius:12px;
+    background-color:white;
+    box-shadow: 0 2px 8px #9b9b9c;
+    padding: 1rem 2rem;
+}
+
+#comments ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+#comments li{
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #CCCCCC;
+}
+
+#comments li:last-of-type{
+    border-bottom:none;
+}
+
+#comments h2{
+    color: #464646;
+}
+
+/* Formatação do butão Ler Depois */
+
+#read-later{
+    margin:2rem 0;
+}
+
+#read-later button{
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 0.5rem 2rem;
+    font: inherit;
+    color:white;
+    cursor: pointer;
+}
+
+#read-later button:hover {
+    background-color: white;
+    color:#390281;
+}
